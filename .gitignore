@@ -10,4 +10,5 @@ data/*.db
 *.egg-info/
 build/
 dist/
+AGENTS.md
 
