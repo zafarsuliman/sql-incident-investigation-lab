@@ -1,0 +1,13 @@
+services:
+  dashboard:
+    build: .
+    ports: ["8501:8501"]
+    volumes: ["./data:/app/data"]
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    profiles: ["sqlserver"]
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "${MSSQL_SA_PASSWORD:?set in local .env}"
+    ports: ["1433:1433"]
+
