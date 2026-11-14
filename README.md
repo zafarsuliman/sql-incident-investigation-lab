@@ -4,9 +4,9 @@
 
 [Mobile workflow screenshot](docs/screenshots/mobile.png)
 
-A safe support-engineering practice environment containing ten reproducible wholesale-distribution data incidents. The default Streamlit application uses a disposable SQLite database so it runs without infrastructure; SQL Server-specific deadlock material and an opt-in Compose profile are included for platform practice.
+A safe support-engineering practice environment containing ten wholesale-distribution incident scenarios. The default Streamlit application uses a disposable SQLite database so it runs without infrastructure; SQL Server-specific deadlock material and an opt-in Compose profile are included for platform practice.
 
-**Status:** portfolio lab, locally verified on 14 November 2026. See [VERIFICATION.md](VERIFICATION.md) for commands, results and database boundaries.
+**Status:** SQLite tests and lint verified locally on 14 November 2026; two SQL Server incident scripts were verified in a recorded Express run. Docker and the two-session deadlock capture are not verified. See [VERIFICATION.md](VERIFICATION.md).
 
 ## Quick start
 
@@ -40,14 +40,14 @@ The verification runs duplicate-payment and incorrect-total reproduction/correct
 
 ## Recruiter evidence
 
-- Genuine desktop and mobile screenshots of the incident workflow.
+- Desktop and mobile screenshots of the incident workflow are included.
 - Five automated tests and Ruff checks passed locally on 14 November 2026.
 - SQL Server scripts demonstrate transactional reproduction, correction, rollback and seed-state verification.
-- Ten incident scenarios, architecture notes, an interview guide and a two-minute demonstration script are included.
+- Ten incident scenarios are included; SQL Server reproduction evidence is scoped to duplicate-payment and incorrect-total incidents.
 
 ## Limitations
 
-SQLite and SQL Server 2022 Express paths are verified. The SQL Server scripts reproduced, corrected and rolled back duplicate-payment and incorrect-total incidents. Docker and the two-session deadlock capture remain `NOT VERIFIED`. The Docker SQL Server profile requires a user-supplied strong `MSSQL_SA_PASSWORD`.
+The SQLite test path is verified. A recorded SQL Server 2022 Express run reproduced, corrected and rolled back the duplicate-payment and incorrect-total incidents. Docker and the two-session deadlock capture remain `NOT VERIFIED`. The Docker SQL Server profile requires a user-supplied strong `MSSQL_SA_PASSWORD`.
 
 The 2 November 2026 dependency audit reports Pillow 12.3 advisories whose published fix is Pillow 13. Streamlit 1.65 currently constrains Pillow to `<13`, so this transitive finding is unresolved; the application does not accept or process image uploads, reducing exposure but not removing the dependency risk.
 
